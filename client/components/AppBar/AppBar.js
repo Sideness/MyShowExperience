@@ -4,15 +4,34 @@ import {
   Text,
   View
 } from 'react-native';
+import { Toolbar } from 'react-native-material-ui';
 import Colors from 'MyShowExperience/utils/colors';
 import Strings from 'MyShowExperience/utils/strings/fr_FR';
 
 type Props = {};
 export default class AppBar extends Component<Props> {
+
+  actionClicked = (action) => {
+    if(action.index === 0) {
+      console.log('La fonctionnalité de déconnexion n\'est pas encore disponible');
+    } else if (action.index === 1) {
+      console.log('Impossible de rafraichir pour le moment');
+    }
+  };
+
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.appTitle}>{Strings.APP_TITLE}</Text>
+        <Toolbar
+          centerElement={Strings.APP_TITLE}
+          rightElement={{
+            menu: { labels: [Strings.MENU.REFRESH, Strings.MENU.DISCONECT] },
+          }}
+          onRightElementPress={ (action) => { this.actionClicked(action) }}
+          style={{
+            container: { backgroundColor: Colors.PRIMARY_BACKGROUND },
+          }}
+        />
       </View>
     );
   }
@@ -20,19 +39,8 @@ export default class AppBar extends Component<Props> {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: Colors.PRIMARY_BACKGROUND,
-    height: 50,
     position: 'absolute',
     width: '100%',
     top: 0,
-    justifyContent: 'space-between',
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: 10,
-  },
-  appTitle: {
-    color: 'white',
-    fontWeight: 'bold',
-    fontSize: 18,
   },
 });
