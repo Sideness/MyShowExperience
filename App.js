@@ -5,7 +5,7 @@ import {
   Text,
   View
 } from 'react-native';
-import AppBar from 'TestApp/client/components/AppBar/AppBar';
+import AppBar from 'MyShowExperience/client/components/AppBar/AppBar';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +

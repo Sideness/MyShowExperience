@@ -4,8 +4,8 @@ import {
   Text,
   View
 } from 'react-native';
-import Colors from 'TestApp/utils/colors';
-import Strings from 'TestApp/utils/strings/fr_FR';
+import Colors from 'MyShowExperience/utils/colors';
+import Strings from 'MyShowExperience/utils/strings/fr_FR';
 
 type Props = {};
 export default class AppBar extends Component<Props> {
@@ -24,7 +24,11 @@ const styles = StyleSheet.create({
     height: 50,
     position: 'absolute',
     width: '100%',
-    top: 0
+    top: 0,
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 10,
   },
   appTitle: {
     color: 'white',
